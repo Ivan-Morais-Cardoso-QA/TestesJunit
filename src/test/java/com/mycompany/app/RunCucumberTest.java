@@ -1,7 +1,15 @@
 package com.mycompany.app;
-import io.cucumber.junit.platform.engine.Cucumber;
 
+import org.junit.runner.RunWith;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 
+@RunWith(Cucumber.class)
+@CucumberOptions(
+    features = "src/test/resources/features",   // caminho para suas .feature
+    glue = "com.mycompany.app.steps",           // pacote das step definitions
+    plugin = {"pretty", "html:target/cucumber-report.html"},
+    monochrome = true
+)
 public class RunCucumberTest {
-    
 }
